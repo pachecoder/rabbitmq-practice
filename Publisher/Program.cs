@@ -10,12 +10,17 @@
         {
             using (var bus = RabbitHutch.CreateBus("host=localhost"))
             {
-                for (int numberOfQueue = 1; numberOfQueue <= 10; numberOfQueue++)
+                var input = "";
+                var createQueue = "Press any key to start to create queues. Write [Quit] to quit.";
+                Console.WriteLine(createQueue);
+                while ((input = Console.ReadLine()) != "Quit")
                 {
-                    var queueMessages = string.Format("This is the queue number: {0}", numberOfQueue);
-                    CreateQueue(bus, queueMessages);
-                    Console.WriteLine(queueMessages);
-                    Console.ReadKey();
+                    for (int numberOfQueue = 1; numberOfQueue <= 10; numberOfQueue++)
+                    {
+                        var queueMessages = string.Format("This is the queue number: {0}", numberOfQueue);
+                        CreateQueue(bus, queueMessages);
+                        Console.WriteLine(queueMessages);
+                    }
                 }
             }
         }

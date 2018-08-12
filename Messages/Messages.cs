@@ -3,7 +3,7 @@
     using EasyNetQ;
     using System.Threading;
 
-    [Queue("MessagesQueue", ExchangeName = "MyTestExchange")]
+    [Queue("TestMessagesQueue", ExchangeName = "MyTestExchange")]
     public class TextMessage
     {
         public string Text { get; set; }
